@@ -169,11 +169,11 @@ a:hover { color: #036; }
  */
 
 #map {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+	height:260px;
+	left:403px;
+	position:absolute;
+	top:119px;
+	width:371px;
 }
 	.cp-map-container-applied {
 		height: 100%;
@@ -182,7 +182,96 @@ a:hover { color: #036; }
 		display: none;
 	}
 
+	body {
+		background-color: #fc4e98;
+	}
+	
+#main {
+	height: 860px;
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	background-image: url("/img/bigben-bg.png");
+	background-repeat: no-repeat;
+	background-position: 164px 0px;
+}
 
+#content { 
+	left:5px;
+	position:relative;
+	top:118px;
+	width:280px;
+}
+
+#content p {
+padding: 20px 10px 0 0;
+color: white;
+font-size: 1.1em;
+}
+#content p a { 
+	color: #3e329b;
+	font-weight: bold;
+}
+
+#donateCloud {
+	background-image:url("/img/donate-cloud.png");
+	height:202px;
+	left:463px;
+	position:absolute;
+	top:376px;
+	width:310px;
+	
+}
+
+.donateContent {
+	left:70px;
+	position:relative;
+	top:42px;
+	width:188px;
+}
+.donateContent p{
+	color: #fc4e98;
+	font-size: 1.7em;
+	text-align: center;
+}
+
+.donateForm { 
+	position: absolute;
+	left:32px;
+top:93px;
+}
+
+#footer {
+	background-image: url("/img/footer-bg.gif");
+	height: 100px;
+}
+
+#aquelogo { 
+	background-image:url("/img/aqueduct.gif");
+	bottom:-68px;
+	height:40px;
+	left:841px;
+	position:absolute;
+	width:120px;
+}
+
+#running-man {
+background-image: url("/img/running-man.png");
+width: 204px;
+height: 265px;
+position: absolute;
+bottom: 0px;
+left: 30px;
+}
+
+.accessibility-item, .accessibility-link {
+display:block;
+height:1px;
+left:-10000px;
+position:absolute;
+top:auto;
+width:1px;
+}
 
 
 
