@@ -39,66 +39,27 @@
 
   <div id="container">
     
-    <div id="main" role="main">
+    <div id="thankyou-main" role="main">
 		<div id="content">
-			<img src="img/title.png"/>
-			<p>On Sunday the 17th of April I'll be
-			attempting the London Marathon in under 24 hours. 
-			While my efforts will be very average here's your
-			chance to go the extra mile and help raise funds and help 
-			make the life of a very special little boy a lot better.
-			</p>
-			<p>
-<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/el0wsN" data-text="Support Sasha by sponsoring Andy's marathon effort." data-count="horizontal" data-via="run4sasha">Tweet</a>
-			</p>
-			<p>
-			To find out more visit: <br/>
-			<a href="http://www.supportsasha.com" title="Support Sasha">http://www.supportsasha.com</a>
-			</p>
+		<img src="img/ThankYouTitle.png"/>
+		<p>Your support is very much appreciated. If you can't make it to cheer Andy check <a href="/">back here</a> to watch his progess.
+		</p>
+		<p>
+		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/el0wsN" data-text="I have donated for Andy's marathon effort to supportsasha." data-count="horizontal" data-via="run4sasha">Tweet</a>
+		</p>
+		<p>
+		To find out more visit: <br/>
+		<a href="http://www.supportsasha.com" title="Support Sasha">http://www.supportsasha.com</a>
+		</p>
+		
 		</div>
 	
-		<div id="donateCloud">
-		<div class="donateContent"><p>I'm flagging. <br/> Please donate and <br/>I'll pick up my feet.</p>
-		<form method="post" action="https://www.paypal.com/cgi-bin/webscr" class="donateForm"><div class="paypal-donations">
-		<input type="hidden" value="_donations" name="cmd"><input type="hidden" value="donations@supportsasha.com" name="business">
-		<input type="hidden" value="Support Sasha" name="item_name">
-		<input type="hidden" name="return" value="http://runfatboyrun.supportsasha.com/thankyou.php">
-		<input type="hidden" value="Andy running" name="item_number">
-		<input type="hidden" value="GBP" name="currency_code">
-		<input type="image" alt="PayPal - The safer, easier way to pay online." name="submit" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif">
-		<img height="1" width="1" src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt=""></div></form>
-		</div>
-		</div>
-		
-		<div id="map">
-        <h2 class="cp-map-title">Map Details: <a href="#map-skip">skip</a></h2>
-        <div class="geo visuallyhidden">Location Name: 
-			<span class="latitude">51.52208</span>, 
-			<span class="longitude">-0.10999</span>. 
-			Zoom: <span class="zoom">15</span>
-		</div>
-        <div class="cp-map-container">
-        	<div class="cp-map-container-loading"></div>
-		</div>
-        <ul class="cp-map-pins">
-        	<li>
-		        <div class="geo visuallyhidden">Location Name: 
-<span class="latitude">51.52208</span>, 
-			<span class="longitude">-0.10999</span>. 
-				</div>
-				
-        	</li>
-        	
-        </ul>
-        <div id="map-skip"></div>
-	</div>
+		<div id="fb-root"></div>
+		<script src="http://connect.facebook.net/en_US/all.js#appId=36505003826&amp;xfbml=1"></script><fb:comments href="runfatboyrun.supportsasha.com" num_posts="2" width="400"></fb:comments>
 	<div id="aquelogo">
 			<span class="accessibility-item">Aqueduct logo</span>
 		</div>
 		
-		<div id="running-man">
-		<span class="accessibility-item">Running man</span>
-	</div>
     </div>
 	
 	<div id="footer">

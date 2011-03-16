@@ -186,14 +186,28 @@ a:hover { color: #036; }
 		background-color: #fc4e98;
 	}
 	
-#main {
+#main, #thankyou-main {
 	height: 860px;
 	position: relative;
 	margin: 0 auto;
 	width: 960px;
-	background-image: url("/img/bigben-bg.png");
+	background-image: url("../img/bigben-bg.png");
 	background-repeat: no-repeat;
 	background-position: 164px 0px;
+}
+
+#thankyou-main {
+	background-image: url("../img/thankyou-bg.png");
+	background-position: 0;
+}
+
+.fb_iframe_widget {
+left:368px;
+position:absolute !important;
+top:228px;
+height: 360px;
+overflow-y: scroll;
+
 }
 
 #content { 
@@ -214,13 +228,12 @@ font-size: 1.1em;
 }
 
 #donateCloud {
-	background-image:url("/img/donate-cloud.png");
+	background-image:url("../img/donate-cloud.png");
 	height:202px;
 	left:463px;
 	position:absolute;
 	top:376px;
 	width:310px;
-	
 }
 
 .donateContent {
@@ -242,12 +255,12 @@ top:93px;
 }
 
 #footer {
-	background-image: url("/img/footer-bg.gif");
+	background-image: url("../img/footer-bg.gif");
 	height: 100px;
 }
 
 #aquelogo { 
-	background-image:url("/img/aqueduct.gif");
+	background-image:url("../img/aqueduct.gif");
 	bottom:-68px;
 	height:40px;
 	left:841px;
@@ -256,7 +269,7 @@ top:93px;
 }
 
 #running-man {
-background-image: url("/img/running-man.png");
+background-image: url("../img/running-man.png");
 width: 204px;
 height: 265px;
 position: absolute;
