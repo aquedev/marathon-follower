@@ -41,8 +41,7 @@
     
     <div id="thankyou-main" role="main">
 		<div id="content">
-		<img src="img/ThankYouTitle.png"/><br/>
-		<img src="img/poweredby.png"/>
+		<img src="img/ThankYouTitle.png"/>
 		<p>Your support is very much appreciated. If you can't make it to cheer Andy check <a href="/">back here</a> to watch his progess.
 		</p>
 		<p>
