@@ -193,7 +193,7 @@ a:hover { color: #036; }
 	width: 960px;
 	background-image: url("../img/bigben-bg.png");
 	background-repeat: no-repeat;
-	background-position: 164px 0px;
+	background-position: 260px 0px;
 }
 
 #thankyou-main {
@@ -201,13 +201,16 @@ a:hover { color: #036; }
 	background-position: 0;
 }
 
-.fb_iframe_widget {
-left:368px;
-position:absolute !important;
-top:228px;
-height: 360px;
-overflow-y: scroll;
+#thankyou-main .fb_iframe_widget {
+	left:368px;
+	position:absolute !important;
+	top:228px;
+	height: 360px;
+	overflow-y: scroll;
+}
 
+#main .fb_iframe_widget {
+top: -3px;
 }
 
 #content { 
@@ -222,6 +225,7 @@ padding: 20px 10px 0 0;
 color: white;
 font-size: 1.1em;
 }
+
 #content p a { 
 	color: #3e329b;
 	font-weight: bold;
@@ -230,10 +234,10 @@ font-size: 1.1em;
 #donateCloud {
 	background-image:url("../img/donate-cloud.png");
 	height:202px;
-	left:463px;
+	left:468px;
 	position:absolute;
 	top:376px;
-	width:310px;
+	width:304px;
 }
 
 .donateContent {
@@ -243,9 +247,11 @@ font-size: 1.1em;
 	width:188px;
 }
 .donateContent p{
-	color: #fc4e98;
-	font-size: 1.7em;
-	text-align: center;
+	color:#FC4E98;
+	font-size:1.7em;
+	left:-9px;
+	position:relative;
+	text-align:center;
 }
 
 .donateForm { 
@@ -269,31 +275,22 @@ top:93px;
 }
 
 #running-man {
-background-image: url("../img/running-man.png");
-width: 204px;
-height: 265px;
-position: absolute;
-bottom: 0px;
-left: 30px;
+	background-image: url("../img/running-man.png");
+	width: 204px;
+	height: 265px;
+	position: absolute;
+	bottom: -21px;
+	left: 30px;
 }
 
 .accessibility-item, .accessibility-link {
-display:block;
-height:1px;
-left:-10000px;
-position:absolute;
-top:auto;
-width:1px;
+	display:block;
+	height:1px;
+	left:-10000px;
+	position:absolute;
+	top:auto;
+	width:1px;
 }
-
-
-
-
-
-
-
-
-
 
 /**
  * Non-semantic helper classes: please define your styles before this section.
