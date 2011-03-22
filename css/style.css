@@ -255,9 +255,9 @@ font-size: 1.1em;
 }
 
 .donateForm { 
-	position: absolute;
-	left:32px;
-top:93px;
+	left: 32px;
+    position: absolute;
+    top: 48px;
 }
 
 #footer {
