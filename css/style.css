@@ -275,12 +275,10 @@ font-size: 1.1em;
 }
 
 #running-man {
-	background-image: url("../img/running-man.png");
-	width: 204px;
-	height: 265px;
-	position: absolute;
-	bottom: -21px;
-	left: 30px;
+	bottom: -23px;
+    left: -58px;
+    position: absolute;
+    width: 204px;
 }
 
 .accessibility-item, .accessibility-link {

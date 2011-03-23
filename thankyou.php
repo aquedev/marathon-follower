@@ -42,6 +42,7 @@
     <div id="thankyou-main" role="main">
 		<div id="content">
 		<img src="img/ThankYouTitle.png"/>
+		<a href="http://www.aqueduct.co.uk"><img src="img/poweredby.png"/></a>
 		<p>Your support is very much appreciated. If you can't make it to cheer Andy check <a href="/">back here</a> to watch his progess.
 		</p>
 		<p>
@@ -56,9 +57,9 @@
 	
 		<div id="fb-root"></div>
 		<script src="http://connect.facebook.net/en_US/all.js#appId=36505003826&amp;xfbml=1"></script><fb:comments href="runfatboyrun.supportsasha.com" num_posts="2" width="400"></fb:comments>
-	<div id="aquelogo">
+	<a id="aquelogo" href="http://www.aqueduct.co.uk">
 			<span class="accessibility-item">Aqueduct logo</span>
-		</div>
+	</a>
 		
     </div>
 	
