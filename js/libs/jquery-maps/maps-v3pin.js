@@ -125,5 +125,16 @@
     $.maps.v3pin.prototype.centerOnMap = function () {
         this.map_.panTo(this.latlng_);
     };
+    $.maps.v3pin.prototype.moveTo = function (lat, lng) {
+	    this.latlng_ = new google.maps.LatLng(lat,lng);
+			
+		var overlayProjection = this.getProjection();
+        var coords = overlayProjection.fromLatLngToDivPixel(this.latlng_);
 
+        // position the DIV to fit the indicated dimensions.
+        var div = this.div_;
+        div.style.left = coords.x + 'px';
+        div.style.top = coords.y + 'px';
+    };
+	
 })(window.jQuery, window.google);

@@ -45,6 +45,7 @@ div.cp-map-applied { display: block; }
     height: 0px;
     position: absolute;
     width: 0px;
+	z-index:1;
 }
     .cp-map-pin-inner {
         -moz-background-size:auto auto;
@@ -72,6 +73,10 @@ div.cp-map-applied { display: block; }
             width: 13px;
         }
 
+	.cp-map-pinTman {
+		position: relative;
+		z-index: 10;
+	}
     .cp-map-pinTlarge .cp-map-pin-inner {
         background-position: -57px 0;
 		top: -19px;
