@@ -33,8 +33,11 @@
 /*jslint forin:true */
 (function ($, google) {
     //var mapHolder;
-    var maps = {};
-    var maxNumberedPin = 100;
+    var maps = {},
+    	maxNumberedPin = 100,
+		DEFAULTS = {
+			centerPin: true
+		};
 
     var placeIcon = function (map, latlng, cssClass) {
         var genericIcon = new $.maps.v3pin(map, latlng, cssClass);
@@ -79,7 +82,8 @@
         });
     };
 
-    $.fn.maps = function () {
+    $.fn.maps = function (options) {
+		var settings = $.extend({}, DEFAULTS, options);
         this.each(function () {
             var self = $(this),
                 mapHolder = self.find("> .cp-map-container").get(0),
@@ -117,7 +121,8 @@
                     }
                 });
 
-            } else {
+            }
+			if (settings.centerPin){
                 var centrePin = placeIcon(map, mainGeo.latlng, '');
             }
             
@@ -135,11 +140,10 @@
 			var mapDet = this.getMapDetails(mapid),
 				latlng = new google.maps.LatLng(lat, lng),
 				newPin = placeIcon(mapDet.map, latlng, pinClass);
-			mapDet.pins.push(newPin);
 			return newPin;
 		},
-        setCenter: function (mapid, latlong) {
-            var latlng = new google.maps.LatLng(latlong[0], latlong[1]);
+        setCenter: function (mapid, lat, lon) {
+            var latlng = new google.maps.LatLng(lat, lon);
             maps[mapid].map.panTo(latlng);
         }
     });

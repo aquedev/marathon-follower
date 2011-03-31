@@ -169,11 +169,11 @@ a:hover { color: #036; }
  */
 
 #map {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+	height:260px;
+	left:403px;
+	position:absolute;
+	top:119px;
+	width:371px;
 }
 	.cp-map-container-applied {
 		height: 100%;
@@ -182,16 +182,113 @@ a:hover { color: #036; }
 		display: none;
 	}
 
+	body {
+		background-color: #fc4e98;
+	}
+	
+#main, #thankyou-main {
+	height: 860px;
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	background-image: url("../img/bigben-bg.png");
+	background-repeat: no-repeat;
+	background-position: 260px 0px;
+}
 
+#thankyou-main {
+	background-image: url("../img/thankyou-bg.png");
+	background-position: 0;
+}
 
+#thankyou-main .fb_iframe_widget {
+	left:368px;
+	position:absolute !important;
+	top:228px;
+	height: 360px;
+	overflow-y: scroll;
+}
 
+#main .fb_iframe_widget {
+top: -3px;
+}
 
+#content { 
+	left:5px;
+	position:relative;
+	top:118px;
+	width:280px;
+}
 
+#content p {
+padding: 20px 10px 0 0;
+color: white;
+font-size: 1.1em;
+}
 
+#content p a { 
+	color: #3e329b;
+	font-weight: bold;
+}
 
+#donateCloud {
+	background-image:url("../img/donate-cloud.png");
+	height:202px;
+	left:468px;
+	position:absolute;
+	top:376px;
+	width:304px;
+}
 
+.donateContent {
+	left:65px;
+	position:relative;
+	top:42px;
+	width:188px;
+}
+.donateContent p{
+	color:#FC4E98;
+	font-size:1.7em;
+	left:-9px;
+	position:relative;
+	text-align:center;
+}
 
+.donateForm { 
+	left: 32px;
+    position: absolute;
+    top: 48px;
+}
 
+#footer {
+	background-image: url("../img/footer-bg.gif");
+	height: 100px;
+}
+
+#aquelogo { 
+	background-image:url("../img/aqueduct.gif");
+	bottom:-68px;
+	height:40px;
+	left:841px;
+	position:absolute;
+	width:120px;
+}
+
+#running-man {
+	bottom: -23px;
+    left: -58px;
+    position: absolute;
+    width: 204px;
+}
+
+.accessibility-item, .accessibility-link {
+	display:block;
+	height:1px;
+	left:-10000px;
+	position:absolute;
+	top:auto;
+	width:1px;
+}
 
 /**
  * Non-semantic helper classes: please define your styles before this section.
