@@ -46,7 +46,7 @@
 		<p>Your support is very much appreciated. If you can't make it to cheer Andy check <a href="/">back here</a> to watch his progess.
 		</p>
 		<p>
-		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/el0wsN" data-text="I have donated to Andy's marathon effort to support Sasha." data-count="horizontal" data-via="run4sasha">Tweet</a>
+		<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/el0wsN" data-text="I have donated to Andy's marathon effort to support Sasha." data-count="horizontal" data-via="run4sasha" data-counturl="http://runfatboyrun.supportsasha.com/">Tweet</a>
 		</p>
 		<p>
 		To find out more visit: <br/>
