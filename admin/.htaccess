@@ -1,0 +1,4 @@
+AuthUserFile /home/marto83/runfatboyrun.supportsasha.com/admin/.htpasswd
+AuthType Basic
+AuthName "Admin Area"
+Require valid-user
