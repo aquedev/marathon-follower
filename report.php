@@ -3,11 +3,22 @@ include 'setup.php';
 include 'opendb.php';
 
 $runName = trim($_GET['name']);
+$startDate = trim($_GET['date']);
 
 if (!empty($runName)) {
 
 	// Performing SQL query
-	$query = sprintf("SET timezone = 'Europe/London'; SELECT Id, Lat, Lon, Speed, Heading, Created FROM Locations WHERE RunName = '%s' ORDER BY Id DESC", mysql_real_escape_string($runName));
+
+	
+	$query = sprintf("SELECT Id, Lat, Lon, Speed, Heading, Created FROM Locations WHERE RunName = '%s'", mysql_real_escape_string($runName));
+	if (!empty($startDate))
+	{
+		$query = $query . sprintf(" AND Created > '%s' AND Created < '%s'", 
+					    mysql_real_escape_string(date("Y-m-d", strtotime($startDate))),
+					     mysql_real_escape_string(date("Y-m-d", strtotime($startDate . " +1 day"))));
+	
+	}
+	$query = $query . ' ORDER BY Id DESC';
 	$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
 	echo "<h1>Locations for " . htmlentities($runName) . "</h1>";
