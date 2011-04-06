@@ -1,35 +1,35 @@
-/* Author: davetayls
-
-*/
-(function($){
+/* Author: davetayls */
+/*jslint onevar:false white:false */
+/*global window*/
+(function ($) {
 	
 	var mapDetails,
 		newPins = {},
         counter = 0,
-        feedUrl = 'http://runfatboyrun.supportsasha.com/get.php?name=Andy3&date=2011-04-03&callback=?',
+        feedUrl = 'http://runfatboyrun.supportsasha.com/get.php?name=Andy3&date=2011-04-05&callback=?',
 		manPin,
+        currentSpeed,
 		$runningMan;
 	
-    var sortByCreated = function(a,b){
+    var sortByCreated = function (a, b) {
         return a.created < b.created ? 1 : a.created > b.created ? -1 : 0;
     };
 	var updateLocations = function(locations){
         $(locations).each(function(i){
             var newPin = newPins[this.id];
             if (!newPin){
-                console.log(this.lat + ' ' + this.lon);
+                console.log(this.lat + ' ' + this.lon + ' speed:' + this.speed);
                 if (i === 0){
 					if (manPin){
 						manPin.moveTo(this.lat, this.lon);
-						$runningMan.attr('src', 'img/runseq.gif')
-						//$runningMan.attr('src', 'img/sprintseq.gif')
+                        setRunningManSpeed(parseInt(this.speed));
 					}else{
-                    	manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
+                        manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
 					}
                     $.maps.setCenter('map', this.lat, this.lon);
 				}
                 if (this.isKeyPoint){
-                    newPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTlarge');					
+                    newPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTsmall');					
                 }else{
                     newPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTsmall');					
                 }
@@ -55,6 +55,33 @@
 		});
         counter ++;
     };
+    var setRunningManSpeed = function(speed){
+        if (typeof speed === 'number' && !isNaN(speed)){
+            if (speed < 1){
+                setRunningManSpeed('walk');
+            }else if (speed > 4){
+                setRunningManSpeed('sprint');
+            }else{
+                setRunningManSpeed('run');
+            }
+        }else {
+            if (currentSpeed === speed){
+                return;
+            }
+            switch (speed){
+                case 'walk':
+                    $runningMan.attr('src', 'img/walkseq.gif');
+                    break;
+                case 'sprint':
+                    $runningMan.attr('src', 'img/sprintseq.gif');
+                    break;
+                default:
+                    $runningMan.attr('src', 'img/runseq.gif');        
+            }
+            currentSpeed = speed;
+        }
+    };
+    
     
 	$(function(){
 		
@@ -74,32 +101,10 @@
 				}else{
 					clearInterval(interval);
 				}
-			}, 1000)
+			}, 1000);
 		});
         
 	});
 	
 })(window.jQuery);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
