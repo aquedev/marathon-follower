@@ -2,7 +2,7 @@
 /*jslint onevar:false white:false */
 /*global window*/
 (function ($) {
-	
+		
 	var mapDetails,
 		newPins = {},
         counter = 0,
@@ -13,23 +13,46 @@
 		mostRecentLocation,
 		$lastUpdated;
 	
-    var sortByCreated = function (a, b) {
-        return a.created < b.created ? -1 : a.created > b.created ? 1 : 0;
-    };
+	var runCollection = function(locations){
+		return $.extend([],runCollection.fn, locations);
+	};
+	runCollection.fn = {
+	    sortByCreated: function (a, b) {
+	        return a.created < b.created ? 1 : a.created > b.created ? -1 : 0;
+	    },
+		sortLocations: function() {
+			this.sort(this.sortByCreated);		
+		}
+	};
+	
+	var RunLocation = function(data){
+		data.created = Date.parse(data.created);
+		$.extend(this,data);
+	};
+	RunLocation.prototype = {
+		id: '',
+		lat: '',
+		lon: '',
+		speed: 0,
+		heading: null,
+		created: new Date(),
+		isKeyPoint: false
+	};
+	
 	var updateLocations = function(locations){
         $(locations).each(function(i){
             var newPin = newPins[this.id];
             if (!newPin){
                 window.log(this.lat + ' ' + this.lon + ' speed:' + this.speed);
-                if (!mostRecentLocation || this.created > mostRecentLocation.created){
+                if (i === 0){
 					mostRecentLocation = this
-					$lastUpdated.text(mostRecentLocation.created);
+					
+					$lastUpdated.text('Last seen at ' + mostRecentLocation.created);
 					if (manPin){
-						//manPin.moveTo(this.lat, this.lon);
-						$(manPin.div_).hide();
-						//$(manPin.divContents_).remove();
+						manPin.moveTo(this.lat, this.lon);
+					}else{
+                    	manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
 					}
-                    //manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
                     $.maps.setCenter('map', this.lat, this.lon);
 				}
                 if (this.isKeyPoint){
@@ -44,18 +67,21 @@
 	var getLocations = function(url, callback){
 		$.getJSON(url, function(data, status){
             if (status === 'success'){
-				window.log(data);
-                var locations = data.locations.sort(sortByCreated);
-				callback.call(data, locations);
+                var i =0, run = runCollection([]);
+				for (i=0; i < data.locations.length; i += 1){
+					run.push(new RunLocation(data.locations[i]));
+				}
+				run.sortLocations();
+				callback.call(data, run);
             }
 		});		
 	};
     var updatePins = function(url){
 		getLocations(url, function(locations){
-			updateLocations(locations);/*
+			updateLocations(locations);
             setInterval(function(){
 				updatePins(url);
-			},3000);*/
+			},3000);
 		});
         counter ++;
     };
@@ -112,11 +138,11 @@
 		setTimeout(function(){
 			updatePins(feedUrl);			
 		}, 1000)
-		
+		/*
 		setInterval(function(){
 			var randomnumber=Math.floor(Math.random()*8)
 			setRunningManSpeed(randomnumber);
-		}, 2000)
+		}, 2000)*/
         
 	});
 	
