@@ -168,6 +168,14 @@ a:hover { color: #036; }
  * Author: davetayls
  */
 
+#lastUpdated {
+	position: absolute;
+	left: 403px;
+	top: 100px;
+	width: 370px;
+	text-align: center;
+}
+
 #map {
 	height:260px;
 	left:403px;

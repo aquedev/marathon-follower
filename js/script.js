@@ -6,26 +6,30 @@
 	var mapDetails,
 		newPins = {},
         counter = 0,
-        feedUrl = 'http://runfatboyrun.supportsasha.com/get.php?name=Andy3&date=2011-04-05&callback=?',
+        feedUrl = 'http://runfatboyrun.supportsasha.com/get.php?name=Andy3&callback=?',
 		manPin,
         currentSpeed,
-		$runningMan;
+		$runningMan,
+		mostRecentLocation,
+		$lastUpdated;
 	
     var sortByCreated = function (a, b) {
-        return a.created < b.created ? 1 : a.created > b.created ? -1 : 0;
+        return a.created < b.created ? -1 : a.created > b.created ? 1 : 0;
     };
 	var updateLocations = function(locations){
         $(locations).each(function(i){
             var newPin = newPins[this.id];
             if (!newPin){
-                console.log(this.lat + ' ' + this.lon + ' speed:' + this.speed);
-                if (i === 0){
+                window.log(this.lat + ' ' + this.lon + ' speed:' + this.speed);
+                if (!mostRecentLocation || this.created > mostRecentLocation.created){
+					mostRecentLocation = this
+					$lastUpdated.text(mostRecentLocation.created);
 					if (manPin){
-						manPin.moveTo(this.lat, this.lon);
-                        setRunningManSpeed(parseInt(this.speed));
-					}else{
-                        manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
+						//manPin.moveTo(this.lat, this.lon);
+						$(manPin.div_).hide();
+						//$(manPin.divContents_).remove();
 					}
+                    //manPin = $.maps.placePin('map', this.lat, this.lon, 'cp-map-pinTman');
                     $.maps.setCenter('map', this.lat, this.lon);
 				}
                 if (this.isKeyPoint){
@@ -38,20 +42,20 @@
         });		
 	};
 	var getLocations = function(url, callback){
-		$.getJSON(feedUrl, function(data, status){
+		$.getJSON(url, function(data, status){
             if (status === 'success'){
+				window.log(data);
                 var locations = data.locations.sort(sortByCreated);
 				callback.call(data, locations);
             }
 		});		
 	};
-    var updatePins = function(){
-		$.getJSON(feedUrl, function(data, status){
-            if (status === 'success'){
-                var locations = data.locations.sort(sortByCreated);
-				updateLocations(locations);
-                //setTimeout(updatePins,3000);
-            }
+    var updatePins = function(url){
+		getLocations(url, function(locations){
+			updateLocations(locations);/*
+            setInterval(function(){
+				updatePins(url);
+			},3000);*/
 		});
         counter ++;
     };
@@ -81,16 +85,8 @@
             currentSpeed = speed;
         }
     };
-    
-    
-	$(function(){
-		
-		$runningMan = $('#running-man-img');
-		
-		$('#map').maps({ centerPin: false });
-		
-		mapDetails = $.maps.getMapDetails('map');
 
+	var replayRun = function(feedUrl){
 		getLocations(feedUrl, function(locations){
 			var i=0, run = locations, interval;
 			interval = setInterval(function(){
@@ -102,7 +98,25 @@
 					clearInterval(interval);
 				}
 			}, 1000);
-		});
+		});		
+	};
+    
+    
+	$(function(){
+		
+		$runningMan = $('#running-man-img');	
+		$('#map').maps({ centerPin: false });
+		mapDetails = $.maps.getMapDetails('map');
+		$lastUpdated = $('#lastUpdated');
+
+		setTimeout(function(){
+			updatePins(feedUrl);			
+		}, 1000)
+		
+		setInterval(function(){
+			var randomnumber=Math.floor(Math.random()*8)
+			setRunningManSpeed(randomnumber);
+		}, 2000)
         
 	});
 	
